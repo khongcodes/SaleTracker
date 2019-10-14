@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Commit messages
 - "added image url to items"
 - "added images to slug/index and styled with inline-grid"
+- "got sell page functioning and added test credentials to README"
+- "updated CHANGELOG.md"
 ### Added
 - Add image_url column to Items table
 - Add appropriate inputs for NEW/EDIT item forms
@@ -23,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2019-10-14
 ### Commit messages
 - "some cleanup for final product (.md files)"
+- "fix README.md (leftover text from last project)"
 ### Added
 - Add /README.md
 - Add /spec.md
