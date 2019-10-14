@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Delete /views/sellers/
 ### Modified
 - uncommented Ln 18 in /views/users/dashboard.erb (sold items)
+

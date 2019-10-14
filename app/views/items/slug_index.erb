@@ -4,10 +4,14 @@
 
 <% @items.each do |i| %>
     <div class="item_holder">
-        <a href="/items/<%= i.id %>">
-        <%= i.title %><br>
-        by <%= i.author %>
-        </a>
+        <img src='<%= i.image_url %>' alt='<%= i.title %>' class='image_holder'>
+
+        <div class="link_holder">
+            <a href="/items/<%= i.id %>">
+                <%= i.title %><br>
+                by <%= i.author %>
+            </a>
+        </div>
     </div>
     <br>
 <% end %>

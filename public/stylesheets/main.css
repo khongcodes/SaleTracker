@@ -162,9 +162,23 @@
 /*----------SHOW ITEM SECTION-------------*/
 /*----------------------------------------*/
 
-  div.item_holder{
-    
-  }
+div.item_holder{
+  display: inline-grid;
+  margin-bottom:15px;
+}
+
+img.image_holder{
+  grid-column: 1/span 1;
+  max-height: 70px;
+  max-width: 70px;
+}
+
+div.link_holder{
+  grid-column: 2/span 1;
+  justify-self: start;
+  align-self: top;
+  padding:8px 14px;
+}
 
 /*----------SHOW ITEM SECTION-------------*/
 /*----------------------------------------*/
