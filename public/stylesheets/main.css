@@ -205,6 +205,44 @@ div.link_holder{
     border-top:1px solid rgba(255, 202, 55, 0.425);
   }
 
+/*----------TRACK SALES SECTION-------------*/
+/*------------------------------------------*/
+
+  table.sale_table{
+    text-align: left;
+    width:85%;
+  }
+
+  table.sale_table td, table.sale_table th{
+    padding:4px;
+  }
+
+
+  td.table_image > img{
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  .num{
+    text-align:center;
+  }
+
+  .table_inp{
+    height:30px;
+    width:30%;
+    font-size:14px;
+    padding-left:5%;
+    margin-bottom: 3%;
+    padding-bottom: 1%;
+  }
+
+  .button_holder{
+    text-align:center;
+  }
+
+/*----------CORNEAL DEFAULT SECTION-------------*/
+/*----------------------------------------------*/
+
   h1 {
     font-size: 36px;
     line-height: 54px;

@@ -1,4 +1,41 @@
 <% @title = "Track Sales" %>
 <% @body_title = "Track Sales" %>
 
-test sell page
+<% if !!@error %>
+<h3>Error: <%= @error %></h3>
+<br>
+<% end %>
+
+<% if Helpers.is_logged_in?(session) %>
+
+    <form action='/items/sell' method='post'>
+    <input type='hidden' id='hidden' name='_method' value='patch'>
+    <table class='sale_table'>
+        <tr>
+            <th>Thumb</th>
+            <th>Item</th>
+            <th class='num'>Price</th>
+            <th class='num'>Stock</th>
+            <th class='num'>Qty.</th>
+        </tr>
+
+        <% @items.each do |i| %>
+        <tr>
+            <td class='table_image'><img src='<%= i.image_url %>'></td>
+            <td class='i_text'><%= i.title %><br><span style='font-size:80%;'><%= i.author %></span></td>
+            <td class='i_text num'>$<%= "%.2f" % i.price %></td>
+            <td class='i_text num'><%= i.stock %></td>
+            <td class='num'><input class='table_inp' type='number' name='qty[<%= i.id %>]' min='0' max='<%= i.stock %>' value='0'></td>
+        </tr>
+        <% end %>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="button_holder"><input type='submit' value='submit'></td>
+        </tr>
+    </table>
+    </form>
+<% end %>

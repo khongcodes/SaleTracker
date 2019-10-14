@@ -40,6 +40,44 @@ class ItemsController < ApplicationController
     end
 
 ########################################################################
+#################              TRACK SALES             #################
+########################################################################
+
+    get '/items/sell' do
+        if !logged_in?
+            @error="Please log in to track sales!"
+            erb :'/items/sell'
+        else
+            current_user
+            @items = @user.items
+            erb :'/items/sell'
+        end
+    end
+
+    patch '/items/sell' do
+        #SO it looks like the NUMBER input form takes care of these validations
+        # if params[:qty].any? {|key,value| !valid_integer(value)}
+        #     @error = "Qty. must be a valid integer"
+        #     erb :'/items/sell'
+        # if params[:qty].any? {|key,value| Item.find_by(id:key.to_i).stock < value.to_i}
+        #     @error = "Qty. cannot exceed item stock."
+        #     erb :'/items/sell'
+        # elsif params[:qty].any? {|key,value| value.to_i < 0}
+        #     @error = "Qty. cannot be negative."
+        #     erb :'/items/sell'
+        # end
+
+        params[:qty].each do |key,value|
+            value=0 if value.empty?
+            item = Item.find_by(id:key.to_i)
+            item.stock -= value.to_i
+            item.num_sold += value.to_i
+            item.save
+        end
+        redirect '/items/sell'
+    end
+
+########################################################################
 #################              SHOW ACTION             #################
 ########################################################################
 
@@ -66,7 +104,6 @@ class ItemsController < ApplicationController
         else
             erb :'/items/edit'
         end
-
     end
 
     patch '/items/:id/edit' do
@@ -94,11 +131,6 @@ class ItemsController < ApplicationController
             @item.save
             redirect "/items/#{@item.id}"
         end
-    end
-
-    get '/items/sell' do
-        current_user
-        erb :'/items/sell'
     end
 
 ########################################################################
