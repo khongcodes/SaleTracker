@@ -1,11 +1,13 @@
 <% @title = "Items sold by #{@user.username}" %>
 <% @body_title = "Items sold by #{@user.username}" %>
 
-<ul>
+
 <% @items.each do |i| %>
-    <li><a href="/items/<%= i.id %>">
-    <%= i.title %><br>
-    by <%= i.author %>
-    </a></li><br>
+    <div class="item_holder">
+        <a href="/items/<%= i.id %>">
+        <%= i.title %><br>
+        by <%= i.author %>
+        </a>
+    </div>
+    <br>
 <% end %>
-</ul>

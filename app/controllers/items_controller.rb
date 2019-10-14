@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
                 :price => params[:price].to_f,
                 :stock => params[:stock].to_i,
                 :num_sold => 0,
+                :image_url => params[:image_url],
             }
             item = Item.create(input_hash)
             current_user.items << item
@@ -89,6 +90,7 @@ class ItemsController < ApplicationController
             @item.price = params[:price].to_f unless params[:price].empty?
             @item.stock = params[:stock].to_i unless params[:stock].empty?
             @item.num_sold = params[:num_sold].to_i unless params[:num_sold].empty?
+            @item.image_url = params[:image_url] unless params[:image_url].empty?
             @item.save
             redirect "/items/#{@item.id}"
         end

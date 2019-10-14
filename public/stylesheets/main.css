@@ -162,6 +162,13 @@
 /*----------SHOW ITEM SECTION-------------*/
 /*----------------------------------------*/
 
+  div.item_holder{
+    
+  }
+
+/*----------SHOW ITEM SECTION-------------*/
+/*----------------------------------------*/
+
   span.input_attr{
     font-size:90%;
   }
@@ -171,6 +178,7 @@
     top:-45px;
     float:right;
     max-width: 30%;
+    max-height: 400px;
     margin-left: 50px;
     margin-bottom: 20px;
   }

@@ -1,7 +1,9 @@
 <% @title = "Editing Item" %>
 <% @body_title = "Editing #{@item.title}" %>
 
-<img src='https://www.peowstudio.com/bookimage/mushnew.jpg' alt='cover of <%= @item.title %>' class='cover'>
+<% if !!@item.image_url %>
+    <img src='<%= @item.image_url %>' alt='cover of <%= @item.title %>' class='cover'>
+<% end %>
 
 <p>By: <span class="input_attr"><%= @item.author %></span></p>
 <p>Price: <span class="input_attr">$<%= "%.2f" % @item.price %></span>
@@ -42,6 +44,9 @@
 
         <label for='ns'>Number Sold: </label>
         <input type='text' id='ns' name='num_sold' value='<%= @item.num_sold %>'>
+
+        <label for='url'>Image URL: </label>
+        <input type='text' id='url' name='image_url' value='<%= @item.image_url %>'>
         
         <input type='submit' value='Save Item'>
     </div>
