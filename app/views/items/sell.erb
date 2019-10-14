@@ -21,10 +21,19 @@
 
         <% @items.each do |i| %>
         <tr>
-            <td class='table_image'><img src='<%= i.image_url %>'></td>
-            <td class='i_text'><%= i.title %><br><span style='font-size:80%;'><%= i.author %></span></td>
-            <td class='i_text num'>$<%= "%.2f" % i.price %></td>
-            <td class='i_text num'><%= i.stock %></td>
+            <td class='table_image'>
+                <a href='/items/<%= i.id %>'>
+                    <img src='<%= i.image_url %>'>
+                </a>
+            </td>
+            <td>
+                <a href='/items/<%= i.id %>'>
+                    <%= i.title %><br>
+                    <span style='font-size:80%;'><%= i.author %></span>
+                </a>
+            </td>
+            <td class='num'>$<%= "%.2f" % i.price %></td>
+            <td class='num'><%= i.stock %></td>
             <td class='num'><input class='table_inp' type='number' name='qty[<%= i.id %>]' min='0' max='<%= i.stock %>' value='0'></td>
         </tr>
         <% end %>

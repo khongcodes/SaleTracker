@@ -1,0 +1,50 @@
+<% @title = "Items Sold" %>
+<% @body_title = "Items Sold" %>
+
+<% if !!@error %>
+    <h3>Error: <%= @error %></h3>
+    <br>
+<% end %>
+
+<table class='sale_table'>
+    <tr>
+        <th>Thumb</th>
+        <th>Item</th>
+        <th class='num'>Price</th>
+        <th class='num'>Stock</th>
+        <th class='num'>Qty. sold</th>
+        <th class='num'>Revenue</th>
+    </tr>
+
+    <% @items.each do |i| %>
+    <tr>
+        <td class='table_image'>
+            <a href='/items/<%= i.id %>'>
+                <img src='<%= i.image_url %>'>
+            </a>
+        </td>
+        <td>
+            <a href='/items/<%= i.id %>'>
+                <%= i.title %><br>
+                <span style='font-size:80%;'><%= i.author %></span>
+            </a>
+        </td>
+        <td class='num'>$<%= "%.2f" % i.price %></td>
+        <td class='num'><%= i.stock %></td>
+        <td class='num'><%= i.num_sold %></td>
+        <td class='num'>$<%= "%.2f" % (i.num_sold * i.price) %></td>
+    </tr>
+    <% end %>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class='num'>
+            <p style='margin-bottom:5%;'><strong>Total:</strong></p>
+            $<%= "%.2f" % @items.map{|i|i.num_sold * i.price}.sum %>
+        </td>
+    </tr>
+</table>

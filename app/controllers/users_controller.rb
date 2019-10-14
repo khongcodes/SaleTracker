@@ -13,10 +13,25 @@ class UsersController < ApplicationController
         @users = User.all
         erb :'/users/index'
     end
-
+    
     get '/users/:id' do
         @user = User.find_by(id:params[:id])
         erb :'/users/show'
+    end
+
+########################################################################
+#################            SHOW ITEMS SOLD           #################
+########################################################################
+
+    get '/users/:id/sold' do
+        @user = User.find_by(id:params[:id])
+        if session[:user_id]!=@user.id
+            @error = "You don't have permission to view this page."
+            erb :'/users/show'
+        else
+            @items = @user.items
+            erb :'/users/items_sold'
+        end
     end
 
 ########################################################################
