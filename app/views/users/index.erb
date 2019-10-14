@@ -1,0 +1,8 @@
+<% @title = "Users List" %>
+<% @body_title = "Users List" %>
+
+<ul>
+<% @users.each do |u|%>
+    <li><a href='/users/<%= u.id %>'><%= u.username %></a></li><br>
+<% end %>
+</ul>

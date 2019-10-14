@@ -1,0 +1,37 @@
+<% @title = "Edit User" %>
+<% @body_title = "Edting User #{@user.username}" %>
+
+<form action='/users/<%= @user.id %>' method='post'>
+    <input type='hidden' id='hidden' name='_method' value='patch'>
+    
+    <!-- raise password error: Must enter correct password-->
+    <% if !!@error %>
+    <h3>Error: <%= @error %></h3>
+    <br>
+    <% end %>
+
+    <h4>Enter current password to save changes</h4>
+    <br>
+    <div class='form_wrapper'>
+        <label for="curp">Current Password: </label>
+        <input type="password" id="curp" name="password0">
+    
+        <label for="u">Username: </label>
+        <input type="text" id="u" name="username" value='<%= @user.username %>'>
+
+        <label for="e">Email: </label>
+        <input type="text" id="e" name="email" value='<%= @user.email %>'>
+
+        <label for="p">Password: </label>
+        <input type="password" id="p" name="password" size='30' placeholder='Leave empty to make no change.'>
+
+        <input type='submit' value='Save Changes'>
+    </div>
+</form>
+
+<form action='/users/<%= @user.id %>' method='post'>
+    <input type='hidden' id='hidden' name='_method' value="delete">
+    <div class='form_wrapper'>
+        <input type='submit' value='Delete User'>
+    </div>
+</form>

@@ -1,0 +1,21 @@
+<% @title = "Register" %>
+<% @body_title = "Register New User" %>
+<% if !!@error %>
+    <h3>Error: <%= @error %> Try again!</h3>
+    <br>
+<% end %>
+
+<form action='/register' method='post'>
+    <div class='form_wrapper'>
+        <label for="u">Username: </label>
+        <input type="text" id="u" name="username">
+
+        <label for="e">Email: </label>
+        <input type="text" id="e" name="email">
+
+        <label for="p">Password: </label>
+        <input type="password" id="p" name="password">
+
+        <input type='submit' value='Register'>
+    </div>
+</form>

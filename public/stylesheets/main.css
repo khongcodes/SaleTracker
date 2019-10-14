@@ -1,0 +1,268 @@
+@media screen {
+  /* --- Reset Styles --- */
+  * {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* --- Welcome Page Styles --- */
+  body {
+    background-color:#F5FFC3;
+    color: #a77a05;
+    font-family: Sans-Serif;
+    line-height: 19px;
+  }
+
+  h1, h2, h3, h4{
+    color:#634203;
+  }
+
+  a{
+    color:#f7b818;
+    text-decoration:none;
+  }
+
+  .body_wrapper a:hover{
+    text-decoration:underline;
+  }
+
+  .head_and_body_wrapper {
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 6px rgba(0,0,0,.2);
+    box-shadow: 0 0 6px rgba(0,0,0,.14);
+    margin: 2.5% auto;
+    max-width: 960px;
+    width: 85%;
+
+    display: grid;
+    grid-template-rows: 90px 36px auto;
+    grid-template-columns: 1fr;
+  }
+
+  header{
+    background-color:#ff6782;
+    max-width: 960px;
+    padding: 2% 3% 1%;
+    grid-row: 1/span 1;
+    grid-column: 1/span 1;
+  }
+
+  header h1{
+    padding-top:1%;
+  }
+
+  header a h1{
+    color:white;
+    text-decoration: inherit;
+  }
+
+  header a h1:hover{
+    text-decoration: none;
+  }
+
+/*----------NAV SECTION-------------*/
+/*----------------------------------*/
+  nav{
+    background-color: #f1c40a;
+    grid-row: 2/span 1;
+    grid-column: 1/span1;
+    padding:0 3%;
+
+    display:grid;
+    grid-template: auto /4fr 1fr;
+  }
+
+  nav div{
+    font-size: 90%;
+    justify-self: stretch;
+    align-self: center;
+
+  }
+
+  nav div#left_link{
+    grid-column: 1/span 1;
+  }
+
+  nav div#right_link{
+    grid-column: 3/span 1;
+    justify-self: end;
+  }
+
+  nav a{
+    color:white;
+    text-decoration: inherit;
+  }
+
+  nav a:hover{
+    text-decoration: underline;
+  }
+
+  .body_wrapper {
+    background: #fff;
+    padding: 4%; /* 18px / 800px */
+
+    grid-row: 3/span 1;
+  }
+
+/*----------FORM SECTION-------------*/
+/*-----------------------------------*/
+
+  div.form_wrapper{
+    display:grid;
+    grid-template-columns:1fr 3fr 2fr;
+    grid-row-gap:4px;
+    grid-column-gap:4px;
+  }
+
+  div.form_wrapper#new_item{
+    grid-template-rows:24px 24px 100px 24px 24px;
+  }
+
+  div.form_wrapper label{
+    grid-column:1/span 1;
+    align-self:center;
+    padding: 4px 0 0 0;
+  }
+  
+  div.form_wrapper label[for='s']{
+    grid-column:1/span 1;
+    align-self:start;
+    padding-top:6px;
+  }
+
+  div.form_wrapper input{
+    grid-column:2/span 1;
+    align-self:center;
+    height:16px;
+    width:200px;
+    padding:2px 0px 4px 4px;
+    margin-top:2px;
+  }
+
+  div.form_wrapper textarea{
+    width:300px;
+    height: 75px;
+    border:1px solid #dadada;
+    padding:4px;
+    resize:none;
+    margin-top:6px;
+  }
+
+  div.form_wrapper [type='submit']{
+    width:100px;
+    margin-top:10px;
+  }
+
+/*----------SHOW ITEM SECTION-------------*/
+/*----------------------------------------*/
+
+  span.input_attr{
+    font-size:90%;
+  }
+
+  img.cover{
+    position: relative;
+    top:-45px;
+    float:right;
+    max-width: 30%;
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+
+  hr#form_divide{
+    clear:both;
+    margin-bottom:24px;
+    border:0;
+    height:0;
+    border-top:1px solid rgba(255, 202, 55, 0.425);
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 54px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 3%;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 36px;
+  }
+
+  p {
+    margin-bottom: 18px;
+  }
+
+  .main {
+    overflow: hidden;
+  }
+
+  .content {
+    float: left;
+    width: 60%; /* 480px / 800px */
+  }
+
+  .sidebar {
+    background: #eee;
+    border: 1px solid #ccc;
+    float: right;
+    padding: 2.08333333333%; /* 5px / 240px */
+    width: 30%; /* 240px / 800px */
+  }
+
+  .sidebar ul {
+    font-size: 14px;
+  }
+
+  .branding {
+    clear: both;
+  }
+
+  footer.branding {
+    border-top: 2px solid #ffe7e7;
+    margin-top: 20px;
+    padding-top: 20px;
+    color:#ffb3b3;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: auto;
+  }
+
+  .content, .sidebar {
+    float: none;
+    width: 100%;
+  }
+
+  .sidebar {
+    background: transparent;
+    border: none;
+    border-top: 2px solid #ccc;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  h2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

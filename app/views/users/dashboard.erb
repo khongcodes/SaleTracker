@@ -1,0 +1,20 @@
+<% @title = "Dashboard" %>
+<h1>Welcome, <%= @user.username %></h1>
+<br>
+<h3>Manage Items</h3>
+<ul>
+    <li><a href='/items/new'>New Item</a></li>
+    <li><a href='/items/by/<%= @user.slug %>'>View My Items</a></li>
+    <li><a href='/items/sell'>Track Sales</a></li>
+</ul> <br>
+
+<h3>Event Map</h3>
+<ul>
+    <li><a href='http://www.micexpo.org/exhibitors/'>MICE - Map and Exhibitors</a></li>
+</ul> <br>
+
+<h3>Account</h3>
+<ul>
+    <%# <li><a href=''>View overall stats</a></li> %>
+    <li><a href='/users/<%= @user.id %>/edit'>Edit Account</a></li>
+</ul>

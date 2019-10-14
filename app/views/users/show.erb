@@ -1,0 +1,16 @@
+<% @title = @user.username %>
+<% @body_title = "User #{@user.username}" %>
+
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+
+<!-- raise user permission error: Do not have permission to make changes -->
+<% if !!@error %>
+    <h3>Error: <%= @error %></h3>
+    <br>
+<% end %>
+
+<!-- don't even show EDIT link if this user doesn't match current user-->
+<% if Helpers.current_user(session)==@user %>
+    <a href='/users/<%= @user.id %>/edit'>Edit</a>
+<% end %>

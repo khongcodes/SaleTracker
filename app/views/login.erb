@@ -1,0 +1,18 @@
+<% @title = "Log In" %>
+<% @body_title = "Log In" %>
+<% if !!@error %>
+    <h3>Error: <%= @error %> Try again!</h3>
+    <br>
+<% end %>
+
+<form action='/login' method='post'>
+    <div class='form_wrapper'>
+        <label for="u">Name/Email: </label>
+        <input type="text" id="u" name="input">
+
+        <label for="p">Password: </label>
+        <input type="password" id="p" name="password">
+
+        <input type='submit' value='Log In'>
+    </div>
+</form>

@@ -1,0 +1,55 @@
+<% @title = "Editing Item" %>
+<% @body_title = "Editing #{@item.title}" %>
+
+<img src='https://www.peowstudio.com/bookimage/mushnew.jpg' alt='cover of <%= @item.title %>' class='cover'>
+
+<p>By: <span class="input_attr"><%= @item.author %></span></p>
+<p>Price: <span class="input_attr">$<%= "%.2f" % @item.price %></span>
+<br>Stock: <span class="input_attr"><%= @item.stock %></span>
+<br>Number sold: <span class="input_attr"><%= @item.num_sold %></span>
+<br>Sales revenue: <span class="input_attr">$<%= "%.2f" % (@item.num_sold * @item.price) %></span></p>
+
+<p>Synopsis: <br>
+<span class="input_attr"><%= @item.synopsis %></span></p>
+
+<hr id='form_divide'>
+
+<!-- raise error: Invalid input-->
+<% if !!@error %>
+<h3>Error: <%= @error %></h3>
+<br>
+<% end %>
+
+<p>Type changes, or leave blank to submit no change:</p>
+<br>
+<form action='/items/<%= @item.id %>/edit' method='post'>
+    <input type='hidden' id='hidden' name='_method' value='patch'> 
+    <div class='form_wrapper'>
+        <label for='t'>Title: </label>
+        <input type='text' id='t' name='title' value='<%= @item.title %>'>
+        
+        <label for='a'>Author: </label>
+        <input type='text' id='a' name='author' value='<%= @item.author %>'>
+
+        <label for='s'>Synopsis: </label>
+        <textarea id='s' name='synopsis' rows='6'><%= @item.synopsis %></textarea>
+
+        <label for='p'>Price: $</label>
+        <input type='text' id='p' name='price' value='<%= "%.2f" % @item.price %>'>
+
+        <label for='st'>Stock: </label>
+        <input type='text' id='st' name='stock' value='<%= @item.stock %>'>
+
+        <label for='ns'>Number Sold: </label>
+        <input type='text' id='ns' name='num_sold' value='<%= @item.num_sold %>'>
+        
+        <input type='submit' value='Save Item'>
+    </div>
+</form>
+
+<form action='/items/<%= @item.id %>' method='post'>
+    <input type='hidden' id='hidden' name='_method' value='delete'>
+    <div class='form_wrapper'>
+        <input type='submit' value='Delete Item'>
+    </div>
+</form>

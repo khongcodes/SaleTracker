@@ -1,0 +1,26 @@
+<% @title = @item.title %>
+<% @body_title = "Viewing #{@item.title}" %>
+
+<img src='https://www.peowstudio.com/bookimage/mushnew.jpg' alt='cover of <%= @item.title %>' class='cover'>
+
+<p>By: <span class="input_attr"><%= @item.author %></span></p>
+<p>Price: <span class="input_attr">$<%= "%.2f" % @item.price %></span>
+<br>Stock: <span class="input_attr"><%= @item.stock %></span>
+<br>Number sold: <span class="input_attr"><%= @item.num_sold %></span>
+<br>Sales revenue: <span class="input_attr">$<%= "%.2f" % (@item.num_sold * @item.price) %></span></p>
+
+<p>Synopsis: <br>
+<span class="input_attr"><%= @item.synopsis %></span></p>
+
+<!-- raise user permission error: Do not have permission to make changes -->
+<% if !!@error %>
+    <h3>Error: <%= @error %></h3>
+    <br>
+<% end %>
+
+<!-- show EDIT link if user credentials match-->
+<% if Helpers.current_user(session)==@item.user %>
+    <p><a href='/items/<%= @item.id %>/edit'>Edit Item</a></p>
+<% end %>
+
+<a href='/items/by/<%= @item.user.slug %>'>Back to Items</a>

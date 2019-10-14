@@ -1,0 +1,29 @@
+<% @title = "New Item" %>
+<% @body_title = "New Item" %>
+
+<!-- raise error for invalid inputs-->
+<% if !!@error %>
+<h3>Error: <%= @error %></h3>
+<br>
+<% end %>
+
+<form action='/items' method='post'>
+    <div class='form_wrapper' id='new_item'>
+        <label for='t'>Title: </label>
+        <input type='text' id='t' name='title' placeholder='Required'>
+        
+        <label for='a'>Author: </label>
+        <input type='text' id='a' name='author' placeholder='Required'>
+
+        <label for='s'>Synopsis: </label>
+        <textarea id='s' name='synopsis' rows='6'></textarea>
+
+        <label for='p'>Price: $</label>
+        <input type='text' id='p' name='price' value='0.00'>
+
+        <label for='st'>Stock: </label>
+        <input type='text' id='st' name='stock' value='0'>
+        
+        <input type='submit' value='Save Item'>
+    </div>
+</form>
