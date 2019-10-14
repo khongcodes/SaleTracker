@@ -14,7 +14,6 @@ Features:
 
 Qualifying factors:
 - I was going to scrape MICE's map and exhibitor list but I was short on time, and I realized - why bother essentially recreating a webpage as it already exists?
-- Sell and Stats pages still need to be finished.
 
 I'll seek to address these in future version updates.
 
