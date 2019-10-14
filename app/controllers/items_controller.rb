@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
         else
             params[:price]=0 if params[:price].empty?
             params[:stock]=0 if params[:stock].empty?
+            params[:image_url]='/images/White-Square.jpg' if params[:image_url].empty?
             #parse params (price and stock) for input into Item.create
             input_hash = {
                 :title => params[:title],

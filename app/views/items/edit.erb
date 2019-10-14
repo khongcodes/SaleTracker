@@ -46,7 +46,11 @@
         <input type='text' id='ns' name='num_sold' value='<%= @item.num_sold %>'>
 
         <label for='url'>Image URL: </label>
-        <input type='text' id='url' name='image_url' value='<%= @item.image_url %>'>
+        <% if @item.image_url='/public/images/White-Square.jpg' %>
+            <input type='text' id='url' name='image_url'>
+        <% else %>
+            <input type='text' id='url' name='image_url' value='<%= @item.image_url %>'>
+        <% end %>
         
         <input type='submit' value='Save Item'>
     </div>

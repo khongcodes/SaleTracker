@@ -25,6 +25,9 @@ I'll seek to address these in future version updates.
 - Email: fake-o-email@email.com
 - Password: password
 
+- Username: testuser2
+- Email: fake-o-email2@email.com
+- Password: password
 
 ## Contributing
 
